@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>DvD Flower</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-body{ min-height:100vh; font-family: 'Nunito', sans-serif; background: radial-gradient(circle at top left, rgba(255,182,216,.45), transparent 28%), radial-gradient(circle at top right, rgba(255,255,180,.28), transparent 24%), radial-gradient(circle at bottom right, rgba(170,255,210,.35), transparent 30%), linear-gradient( to bottom, #fff6fb 0%, #f6fff8 40%, #eef8ff 100% ); overflow-x:hidden; }
+body{ min-height:100vh; font-family: 'Quicksand', sans-serif; background: radial-gradient(circle at top left, rgba(255,182,216,.45), transparent 28%), radial-gradient(circle at top right, rgba(255,255,180,.28), transparent 24%), radial-gradient(circle at bottom right, rgba(170,255,210,.35), transparent 30%), linear-gradient( to bottom, #fff6fb 0%, #f6fff8 40%, #eef8ff 100% ); overflow-x:hidden; }
 body::before{ content:'🌸 🌷 🌺 🍀 🌸 🌷'; position:fixed; top:20px; left:-200px; font-size:38px; opacity:.12; animation: sakuraMove 24s linear infinite; white-space:nowrap; z-index:-1; }
 body::after{ content:'🌷 🌸 🍃 🌺 🌷'; position:fixed; bottom:40px; right:-220px; font-size:34px; opacity:.1; animation: sakuraMove2 28s linear infinite; white-space:nowrap; z-index:-1; }
 @keyframes sakuraMove{ 0%{ transform:translateX(0); } 100%{ transform:translateX(130vw); } }
@@ -45,22 +45,22 @@ body::after{ content:'🌷 🌸 🍃 🌺 🌷'; position:fixed; bottom:40px; ri
 <div class="flex items-center gap-6">
 <div class="w-28 h-28 rounded-full bg-yellow-300 flex items-center justify-center text-5xl shadow-xl">🌸</div>
 <div>
-<h1 class="text-5xl md:text-7xl font-black text-white">DvD Flower</h1>
-<p class="text-green-100 mt-3 text-xl">Fantasy Flower Inventory RPG</p>
+<h1 class="text-4xl md:text-5xl font-bold text-white tracking-wide">DvD Flower</h1>
+<p class="text-green-100 mt-2 text-lg font-medium">Fantasy Flower Inventory RPG</p>
 </div>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-<button onclick="showSection('homeSection')" class="menu-btn bg-yellow-400 text-black rounded-3xl py-5 text-2xl font-black shadow-lg">🔎 Tra cứu</button>
-<button onclick="showSection('memberSection')" class="menu-btn bg-[#1c5d4d] text-white rounded-3xl py-5 text-2xl font-black shadow-lg">👥 Thành viên</button>
-<button onclick="showSection('flowerSection')" class="menu-btn bg-[#1c5d4d] text-white rounded-3xl py-5 text-2xl font-black shadow-lg">🌸 Danh sách hoa</button>
-<button onclick="adminLogin()" class="menu-btn bg-[#1c5d4d] text-white rounded-3xl py-5 text-2xl font-black shadow-lg">🔐 Admin</button>
+<button onclick="showSection('homeSection')" class="menu-btn bg-yellow-400 text-black rounded-3xl py-4 text-xl font-bold shadow-lg tracking-wide">🔎 Tra cứu</button>
+<button onclick="showSection('memberSection')" class="menu-btn bg-[#1c5d4d] text-white rounded-3xl py-4 text-xl font-bold shadow-lg tracking-wide">👥 Thành viên</button>
+<button onclick="showSection('flowerSection')" class="menu-btn bg-[#1c5d4d] text-white rounded-3xl py-4 text-xl font-bold shadow-lg tracking-wide">🌸 Danh sách hoa</button>
+<button onclick="adminLogin()" class="menu-btn bg-[#1c5d4d] text-white rounded-3xl py-4 text-xl font-bold shadow-lg tracking-wide">🔐 Admin</button>
 </div>
 </div>
 
 <div id="homeSection" class="section active-section bg-white/80 backdrop-blur rounded-[35px] p-6 shadow-xl mt-6">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-<input id="searchInput" oninput="searchFlowers()" placeholder="🔎 Tìm tên hoa hoặc ingame..." class="border rounded-2xl p-4 text-lg outline-none"/>
-<select id="rarityFilter" onchange="searchFlowers()" class="border rounded-2xl p-4 text-lg">
+<input id="searchInput" oninput="searchFlowers()" placeholder="🔎 Tìm tên hoa hoặc ingame..." class="border rounded-2xl p-4 text-base font-medium outline-none"/>
+<select id="rarityFilter" onchange="searchFlowers()" class="border rounded-2xl p-4 text-base font-medium text-gray-700">
 <option value="">Tất cả phẩm</option>
 <option>HOA ĐỎ</option>
 <option>HOA CAM</option>
@@ -68,57 +68,58 @@ body::after{ content:'🌷 🌸 🍃 🌺 🌷'; position:fixed; bottom:40px; ri
 <option>HOA LAM</option>
 <option>HOA LỤC</option>
 </select>
-<div class="bg-[#f7f7f7] rounded-2xl p-4 font-black text-xl">🌸 Tổng loại hoa: <span id="totalFlowers">0</span></div>
+<div class="bg-[#f7f7f7] rounded-2xl p-4 font-bold text-lg text-gray-800 flex items-center">🌸 Tổng loại hoa:&nbsp;<span id="totalFlowers" class="text-pink-600 font-bold">0</span></div>
 </div>
 <div id="searchGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 mt-6"></div>
 </div>
 
 <div id="memberSection" class="section bg-white/80 backdrop-blur rounded-[35px] p-6 shadow-xl mt-6">
-<h2 class="text-4xl font-black mb-6">👥 Danh sách thành viên</h2>
+<h2 class="text-3xl font-bold mb-6 tracking-wide text-gray-800">👥 Danh sách thành viên</h2>
 <div id="memberList" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
 </div>
 
 <div id="flowerSection" class="section bg-white/80 backdrop-blur rounded-[35px] p-6 shadow-xl mt-6">
-<h2 class="text-4xl font-black mb-6">🌸 Danh sách hoa</h2>
+<h2 class="text-3xl font-bold mb-6 tracking-wide text-gray-800">🌸 Danh sách hoa</h2>
 <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-<button onclick="showRarity('HOA ĐỎ')" class="bg-red-100 text-red-700 rounded-2xl p-5 font-black text-xl">🌹 HOA ĐỎ</button>
-<button onclick="showRarity('HOA CAM')" class="bg-orange-100 text-orange-700 rounded-2xl p-5 font-black text-xl">🧡 HOA CAM</button>
-<button onclick="showRarity('HOA TÍM')" class="bg-purple-100 text-purple-700 rounded-2xl p-5 font-black text-xl">💜 HOA TÍM</button>
-<button onclick="showRarity('HOA LAM')" class="bg-blue-100 text-blue-700 rounded-2xl p-5 font-black text-xl">💎 HOA LAM</button>
-<button onclick="showRarity('HOA LỤC')" class="bg-green-100 text-green-700 rounded-2xl p-5 font-black text-xl">🍀 HOA LỤC</button>
+<button onclick="showRarity('HOA ĐỎ')" class="bg-red-100 text-red-700 rounded-2xl p-4 font-bold text-lg tracking-wide">🌹 HOA ĐỎ</button>
+<button onclick="showRarity('HOA CAM')" class="bg-orange-100 text-orange-700 rounded-2xl p-4 font-bold text-lg tracking-wide">🧡 HOA CAM</button>
+<button onclick="showRarity('HOA TÍM')" class="bg-purple-100 text-purple-700 rounded-2xl p-4 font-bold text-lg tracking-wide">💜 HOA TÍM</button>
+<button onclick="showRarity('HOA LAM')" class="bg-blue-100 text-blue-700 rounded-2xl p-4 font-bold text-lg tracking-wide">💎 HOA LAM</button>
+<button onclick="showRarity('HOA LỤC')" class="bg-green-100 text-green-700 rounded-2xl p-4 font-bold text-lg tracking-wide">🍀 HOA LỤC</button>
 </div>
 <div id="rarityGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 mt-6"></div>
 </div>
 
 <div id="adminSection" class="section bg-white/80 backdrop-blur rounded-[35px] p-6 shadow-xl mt-6">
-<h2 class="text-4xl font-black mb-6">🌷 Admin Panel</h2>
-<p class="text-gray-600 mb-4 bg-yellow-50 p-3 rounded-xl border border-yellow-200">💡 <b>Mẹo:</b> Để thêm thành viên mới vào hoa cũ, bạn chỉ cần nhập <b>Đúng chính xác tên hoa cũ</b>. Nếu là hoa cũ, bạn không cần chọn lại file ảnh nữa!</p>
+<h2 class="text-3xl font-bold mb-6 tracking-wide text-gray-800">🌷 Admin Panel</h2>
+<p class="text-gray-600 mb-4 bg-yellow-50 p-4 rounded-xl border border-yellow-200 text-sm font-medium leading-relaxed">💡 <b>Mẹo:</b> Để thêm thành viên mới vào hoa cũ, bạn chỉ cần nhập <b>Đúng chính xác tên hoa cũ</b>. Nếu là hoa cũ, bạn không cần chọn lại file ảnh nữa!</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<input id="memberName" placeholder="🎮 Tên ingame thành viên" class="border rounded-2xl p-4"/>
-<input id="memberZalo" placeholder="💬 Tên zalo" class="border rounded-2xl p-4"/>
-<input id="flowerName" placeholder="🌸 Tên hoa (Nhập chuẩn tên nếu là hoa cũ)" class="border rounded-2xl p-4"/>
-<select id="flowerType" class="border rounded-2xl p-4"><option value="xu">🌸 Hoa xu</option><option value="goi">🪙 Hoa gói</option></select>
-<select id="flowerRarity" class="border rounded-2xl p-4"><option>HOA ĐỎ</option><option>HOA CAM</option><option>HOA TÍM</option><option>HOA LAM</option><option>HOA LỤC</option></select>
-<input id="flowerImage" type="file" accept="image/*" class="border rounded-2xl p-4"/>
+<input id="memberName" placeholder="🎮 Tên ingame thành viên" class="border rounded-2xl p-4 font-medium"/>
+<input id="memberZalo" placeholder="💬 Tên zalo" class="border rounded-2xl p-4 font-medium"/>
+<input id="flowerName" placeholder="🌸 Tên hoa (Nhập chuẩn tên nếu là hoa cũ)" class="border rounded-2xl p-4 font-medium"/>
+<select id="flowerType" class="border rounded-2xl p-4 font-medium text-gray-700"><option value="xu">🌸 Hoa xu</option><option value="goi">🪙 Hoa gói</option></select>
+<select id="flowerRarity" class="border rounded-2xl p-4 font-medium text-gray-700"><option>HOA ĐỎ</option><option>HOA CAM</option><option>HOA TÍM</option><option>HOA LAM</option><option>HOA LỤC</option></select>
+<input id="flowerImage" type="file" accept="image/*" class="border rounded-2xl p-4 text-sm font-medium"/>
 </div>
 <div class="flex gap-4 mt-5 flex-wrap">
-<button onclick="addFlower()" class="bg-yellow-400 text-black px-8 py-4 rounded-2xl font-black text-xl shadow-lg">➕ Thêm dữ liệu</button>
-<button onclick="clearAllFlowers()" class="bg-red-500 text-white px-8 py-4 rounded-2xl font-black text-xl shadow-lg">🗑️ Xóa toàn bộ dữ liệu</button>
+<button onclick="addFlower()" class="bg-yellow-400 text-black px-6 py-3 rounded-2xl font-bold text-lg shadow-lg tracking-wide">➕ Thêm dữ liệu</button>
+<button onclick="clearAllFlowers()" class="bg-red-500 text-white px-6 py-3 rounded-2xl font-bold text-lg shadow-lg tracking-wide">🗑️ Xóa toàn bộ dữ liệu</button>
 </div>
-<hr class="my-8"><h3 class="text-3xl font-black mb-5">📦 Dữ liệu kho hoa</h3>
+<hr class="my-8">
+<h3 class="text-2xl font-bold mb-5 tracking-wide text-gray-800">📦 Dữ liệu kho hoa</h3>
 <div id="adminFlowerList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
 </div>
 
 <div id="memberFlowerModal" class="modal">
 <div class="modal-content rounded-[35px] p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-<div class="flex justify-between items-center mb-5"><h2 class="text-3xl font-black">🌸 Hoa thành viên sở hữu</h2><button onclick="closeMemberModal()" class="bg-red-500 text-white px-4 py-2 rounded-xl">Đóng</button></div>
+<div class="flex justify-between items-center mb-5"><h2 class="text-2xl font-bold tracking-wide">🌸 Hoa thành viên sở hữu</h2><button onclick="closeMemberModal()" class="bg-red-500 text-white px-4 py-2 rounded-xl text-sm font-bold">Đóng</button></div>
 <div id="memberFlowerContent" class="grid grid-cols-2 md:grid-cols-4 gap-4"></div>
 </div>
 </div>
 
 <div id="flowerOwnersModal" class="modal">
 <div class="modal-content rounded-[35px] p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-<div class="flex justify-between items-center mb-5"><div><h2 class="text-3xl font-black">👥 Thành viên sở hữu</h2><p class="text-gray-500 text-lg mt-1" id="flowerOwnersSubTitle"></p></div><button onclick="closeFlowerOwnersModal()" class="bg-red-500 text-white px-4 py-2 rounded-xl">Đóng</button></div>
+<div class="flex justify-between items-center mb-5"><div><h2 class="text-2xl font-bold tracking-wide">👥 Thành viên sở hữu</h2><p class="text-gray-500 text-sm font-medium mt-1" id="flowerOwnersSubTitle"></p></div><button onclick="closeFlowerOwnersModal()" class="bg-red-500 text-white px-4 py-2 rounded-xl text-sm font-bold">Đóng</button></div>
 <div id="flowerOwnersContent" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
 </div>
 </div>
@@ -154,14 +155,15 @@ function mergedFlowers(){
   return Object.values(map);
 }
 
+// Đã tối ưu hóa giãn cách chữ tracking-wider và giảm độ đậm cho tên hoa
 function renderSearch(data=mergedFlowers()){
   const grid = document.getElementById('searchGrid'); if(!grid) return;
   grid.innerHTML = data.map(f=>`
   <div onclick="showFlowerOwners('${f.name.replace(/'/g, "\\'")}')" class="${rarityClass(f.rarity)} card rounded-[30px] p-4 shadow-lg">
     <div class="flex justify-center"><img src="${f.image}" class="flower-img w-32 h-32 object-contain"/></div>
-    <h2 class="text-center text-xl font-black text-[#5f412e] mt-4 break-words px-1">${f.name.toUpperCase()}</h2>
+    <h2 class="text-center text-lg font-bold text-[#5f412e] mt-4 break-words px-1 tracking-wide leading-tight">${f.name.toUpperCase()}</h2>
     <div class="mt-3 space-y-1 text-center">
-      ${f.flowerXu ? `<div class="bg-white/80 py-1 rounded-full font-black shadow text-xs text-gray-700">🪙 Hoa xu</div>` : `<div class="bg-white/80 py-1 rounded-full font-black shadow text-xs text-gray-700">🎁 Hoa gói</div>`}
+      ${f.flowerXu ? `<div class="bg-white/80 py-1 rounded-full font-bold shadow text-[11px] text-gray-600">🪙 Hoa xu</div>` : `<div class="bg-white/80 py-1 rounded-full font-bold shadow text-[11px] text-gray-600">🎁 Hoa gói</div>`}
       <div class="text-[11px] text-pink-600 font-bold mt-1">Người sở hữu: ${f.owners ? f.owners.length : 0} 🌸</div>
     </div>
   </div>`).join('');
@@ -171,7 +173,7 @@ function renderSearch(data=mergedFlowers()){
 function searchFlowers(){
   const key = document.getElementById('searchInput').value.toLowerCase().trim(); const rarity = document.getElementById('rarityFilter').value;
   let data = mergedFlowers();
-  if(key){ data = data.filter(f=> f.name.toLowerCase().includes(key) || (f.owners && f.owners.some(o=> o.ingame && o.toLowerCase().includes(key))) ); }
+  if(key){ data = data.filter(f=> f.name.toLowerCase().includes(key) || (f.owners && f.owners.some(o=> o.ingame && o.ingame.toLowerCase().includes(key))) ); }
   if(rarity){ data = data.filter(f=> f.rarity === rarity); }
   renderSearch(data);
 }
@@ -181,9 +183,9 @@ function showRarity(r){
   grid.innerHTML = data.map(f=>`
   <div onclick="showFlowerOwners('${f.name.replace(/'/g, "\\'")}')" class="${rarityClass(f.rarity)} card rounded-[30px] p-4 shadow-lg">
     <div class="flex justify-center"><img src="${f.image}" class="flower-img w-28 h-28 object-contain"/></div>
-    <h2 class="text-center text-lg font-black mt-4 text-[#5f412e] break-words">${f.name.toUpperCase()}</h2>
+    <h2 class="text-center text-base font-bold mt-4 text-[#5f412e] break-words tracking-wide leading-tight">${f.name.toUpperCase()}</h2>
     <div class="text-center mt-2 text-xs">
-      <div class="bg-white/60 px-3 py-1 rounded-full font-bold inline-block">${f.flowerXu ? '🪙 Hoa xu' : '🎁 Hoa gói'}</div>
+      <div class="bg-white/60 px-3 py-1 rounded-full font-bold inline-block text-gray-600">${f.flowerXu ? '🪙 Hoa xu' : '🎁 Hoa gói'}</div>
     </div>
   </div>`).join('');
 }
@@ -194,10 +196,10 @@ function showMemberFlowers(memberName){
   const htmlData = data.map(f=>`
     <div class="${rarityClass(f.rarity)} rounded-3xl p-4 shadow-lg">
       <div class="flex justify-center"><img src="${f.image}" class="w-24 h-24 object-contain"/></div>
-      <h3 class="text-center font-black text-md mt-3 text-[#5f412e] break-words">${f.name.toUpperCase()}</h3>
-      <div class="text-center mt-2 font-bold text-xs text-gray-700">${f.flowerXu ? '🪙 Hoa xu' : '🎁 Hoa gói'}</div>
+      <h3 class="text-center font-bold text-base mt-3 text-[#5f412e] break-words tracking-wide leading-tight">${f.name.toUpperCase()}</h3>
+      <div class="text-center mt-2 font-bold text-xs text-gray-500">${f.flowerXu ? '🪙 Hoa xu' : '🎁 Hoa gói'}</div>
     </div>`).join('');
-  document.getElementById('memberFlowerContent').innerHTML = htmlData || '<p class="text-center col-span-2 text-gray-500">Thành viên này hiện chưa sở hữu hoa.</p>';
+  document.getElementById('memberFlowerContent').innerHTML = htmlData || '<p class="text-center col-span-2 text-gray-500 font-medium">Thành viên này hiện chưa sở hữu hoa.</p>';
   document.getElementById('memberFlowerModal').style.display='flex';
 }
 function closeMemberModal(){ document.getElementById('memberFlowerModal').style.display='none'; }
@@ -207,10 +209,10 @@ function showFlowerOwners(flowerName){
   document.getElementById('flowerOwnersSubTitle').innerText = `Hoa: ${targetFlower.name.toUpperCase()} (${targetFlower.rarity})`;
   const htmlData = (targetFlower.owners || []).map(o => `
     <div class="owner-box rounded-2xl p-4 shadow-sm bg-white border border-pink-100">
-      <div class="text-lg font-black text-[#1c5d4d]">🎮 Ingame: ${o.ingame}</div>
-      <div class="mt-1 text-gray-600 text-xs">💬 Zalo: ${o.zalo || 'Không có zalo'}</div>
+      <div class="text-base font-bold text-[#1c5d4d]">🎮 Ingame: ${o.ingame}</div>
+      <div class="mt-1 text-gray-500 text-xs font-medium">💬 Zalo: ${o.zalo || 'Không có zalo'}</div>
     </div>`).join('');
-  document.getElementById('flowerOwnersContent').innerHTML = htmlData || '<p class="text-gray-500 text-center col-span-2">Chưa có ai sở hữu hoa này.</p>';
+  document.getElementById('flowerOwnersContent').innerHTML = htmlData || '<p class="text-gray-500 text-center col-span-2 font-medium">Chưa có ai sở hữu hoa này.</p>';
   document.getElementById('flowerOwnersModal').style.display = 'flex';
 }
 function closeFlowerOwnersModal(){ document.getElementById('flowerOwnersModal').style.display = 'none'; }
@@ -232,9 +234,9 @@ function renderMembers(){
   const list = document.getElementById('memberList'); if(!list) return;
   list.innerHTML = Object.values(members).map(m=>`
     <button onclick="showMemberFlowers('${m.ingame.replace(/'/g, "\\'")}')" class="owner-box rounded-3xl p-5 text-left shadow hover:scale-[1.02] transition">
-      <div class="text-2xl font-black text-[#1c5d4d]">🎮 ${m.ingame}</div>
-      <div class="mt-2 text-gray-600">💬 ${m.zalo || 'Không có zalo'}</div>
-      <div class="mt-3 text-pink-600 font-bold text-sm">Bấm để xem danh sách hoa sở hữu 🌸</div>
+      <div class="text-xl font-bold text-[#1c5d4d]">🎮 ${m.ingame}</div>
+      <div class="mt-1 text-gray-500 text-sm font-medium">💬 ${m.zalo || 'Không có zalo'}</div>
+      <div class="mt-3 text-pink-600 font-bold text-xs tracking-wide">Bấm để xem danh sách hoa sở hữu 🌸</div>
     </button>`).join('');
 }
 
@@ -245,13 +247,13 @@ function renderAdminFlowers(){
       <div class="flex items-center gap-4">
         <img src="${f.image}" class="w-16 h-16 object-contain"/>
         <div class="flex-1 min-w-0">
-          <div class="text-xl font-black uppercase truncate">${f.name}</div>
-          <div class="mt-1 font-bold text-teal-800 text-sm truncate">🎮 Chủ: ${f.owners && f.owners[0] ? f.owners[0].ingame : ''}</div>
+          <div class="text-lg font-bold uppercase truncate tracking-wide text-gray-800">${f.name}</div>
+          <div class="mt-1 font-semibold text-teal-800 text-xs truncate">🎮 Chủ: ${f.owners && f.owners[0] ? f.owners[0].ingame : ''}</div>
         </div>
       </div>
       <div class="flex gap-2 mt-4">
-        <button onclick="editFlower(${index})" class="flex-1 bg-yellow-400 text-black py-2 rounded-xl font-black text-sm">✏️ Sửa</button>
-        <button onclick="deleteFlower(${index})" class="flex-1 bg-red-500 text-white py-2 rounded-xl font-black text-sm">🗑️ Xóa</button>
+        <button onclick="editFlower(${index})" class="flex-1 bg-yellow-400 text-black py-2 rounded-xl font-bold text-xs tracking-wide">✏️ Sửa</button>
+        <button onclick="deleteFlower(${index})" class="flex-1 bg-red-500 text-white py-2 rounded-xl font-bold text-xs tracking-wide">🗑️ Xóa</button>
       </div>
     </div>`).join('');
 }
@@ -275,9 +277,6 @@ function editFlower(index){
 
 function clearAllFlowers(){ if(confirm('Bạn có chắc muốn xóa TOÀN BỘ dữ liệu?')){ flowers = []; localStorage.removeItem('dvdFlowers'); saveData(); renderSearch(); renderMembers(); renderAdminFlowers(); alert('Đã xóa toàn bộ dữ liệu 🌸'); } }
 
-// ==========================================
-// HÀM MỚI: TỰ ĐỘNG PHÁT HIỆN HOA CŨ ĐỂ GHÉP NGƯỜI MỚI VÀO
-// ==========================================
 function addFlower(){
   const ingame = document.getElementById('memberName').value.trim();
   const zalo = document.getElementById('memberZalo').value.trim();
@@ -288,27 +287,21 @@ function addFlower(){
   
   if(!ingame || !flowerName){ alert("Vui lòng điền Tên ingame và Tên hoa!"); return; }
   
-  // Kiểm tra xem hoa này đã từng có trong hệ thống chưa
   const existingFlower = flowers.find(f => f.name.trim().toUpperCase() === flowerName.toUpperCase());
   
   if(existingFlower) {
-    // NẾU LÀ HOA CŨ: Chỉ cần nhét thêm người sở hữu mới vào bông hoa cũ đó
     if(!existingFlower.owners) existingFlower.owners = [];
-    
-    // Tránh trùng lặp người trong cùng 1 bông hoa
     const isMemberExist = existingFlower.owners.some(o => o.ingame.trim().toLowerCase() === ingame.toLowerCase());
     if(!isMemberExist) {
        existingFlower.owners.push({ ingame: ingame, zalo: zalo });
     }
     
-    // Đẩy lên đồng bộ trực tiếp
     saveData().then(() => {
       renderSearch(); renderMembers(); renderAdminFlowers();
       document.getElementById('memberName').value = ""; document.getElementById('memberZalo').value = "";
       alert(`Đã thêm thành viên ${ingame} vào hoa cũ "${flowerName.toUpperCase()}" thành công!`);
     });
   } else {
-    // NẾU LÀ HOA MỚI TINH: Bắt buộc phải chọn ảnh
     if(!imageFile){ alert("Hoa này là hoa mới hoàn toàn, bạn vui lòng bấm chọn Tệp Ảnh cho hoa nhé!"); return; }
     
     const reader = new FileReader();
